@@ -1,4 +1,4 @@
-package com.connyay.domainr.support;
+package com.domainr.support;
 
 import org.holoeverywhere.app.ListFragment;
 
@@ -15,8 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.connyay.domainr.R;
-import com.connyay.domainr.common.FlurryLogger;
-import com.connyay.domainr.gson.Registrars;
+import com.domainr.common.FlurryLogger;
+import com.domainr.gson.Registrars;
 
 /**
  * Demonstration of the implementation of a custom Loader.

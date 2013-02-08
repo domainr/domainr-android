@@ -1,4 +1,4 @@
-package com.connyay.domainr.gson;
+package com.domainr.gson;
 
 import com.androidquery.callback.AjaxStatus;
 import com.androidquery.callback.Transformer;

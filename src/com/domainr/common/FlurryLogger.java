@@ -1,4 +1,4 @@
-package com.connyay.domainr.common;
+package com.domainr.common;
 
 import java.util.HashMap;
 import java.util.Map;

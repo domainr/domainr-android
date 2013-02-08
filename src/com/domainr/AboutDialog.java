@@ -1,4 +1,4 @@
-package com.connyay.domainr;
+package com.domainr;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.net.URLEncoder;
@@ -15,7 +15,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.connyay.domainr.common.FlurryLogger;
+import com.connyay.domainr.R;
+import com.domainr.common.FlurryLogger;
 
 public class AboutDialog extends DialogFragment implements OnClickListener,
 	UncaughtExceptionHandler {

@@ -1,4 +1,4 @@
-package com.connyay.domainr;
+package com.domainr;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 
@@ -26,12 +26,13 @@ import com.actionbarsherlock.view.MenuItem;
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
-import com.connyay.domainr.common.DelayedTextWatcher;
-import com.connyay.domainr.common.FlurryLogger;
-import com.connyay.domainr.gson.GsonTransformer;
-import com.connyay.domainr.gson.Results;
-import com.connyay.domainr.gson.ResultsData;
-import com.connyay.domainr.support.ResultsAdapter;
+import com.connyay.domainr.R;
+import com.domainr.common.DelayedTextWatcher;
+import com.domainr.common.FlurryLogger;
+import com.domainr.gson.GsonTransformer;
+import com.domainr.gson.Results;
+import com.domainr.gson.ResultsData;
+import com.domainr.support.ResultsAdapter;
 import com.flurry.android.FlurryAgent;
 
 public class Main extends ListActivity implements UncaughtExceptionHandler {

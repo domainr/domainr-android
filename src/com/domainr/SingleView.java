@@ -1,4 +1,4 @@
-package com.connyay.domainr;
+package com.domainr;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.List;
@@ -26,10 +26,11 @@ import com.actionbarsherlock.view.MenuItem;
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
-import com.connyay.domainr.common.FlurryLogger;
-import com.connyay.domainr.gson.GsonTransformer;
-import com.connyay.domainr.gson.Result;
-import com.connyay.domainr.support.LoaderCustomSupport;
+import com.connyay.domainr.R;
+import com.domainr.common.FlurryLogger;
+import com.domainr.gson.GsonTransformer;
+import com.domainr.gson.Result;
+import com.domainr.support.LoaderCustomSupport;
 import com.viewpagerindicator.TitlePageIndicator;
 
 /**

@@ -1,4 +1,4 @@
-package com.connyay.domainr.common;
+package com.domainr.common;
 
 import android.os.AsyncTask;
 import android.text.Editable;

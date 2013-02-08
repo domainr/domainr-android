@@ -1,4 +1,4 @@
-package com.connyay.domainr;
+package com.domainr;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 
@@ -13,7 +13,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import com.connyay.domainr.common.FlurryLogger;
+import com.connyay.domainr.R;
+import com.domainr.common.FlurryLogger;
 
 public class MoreInfoFragment extends Fragment implements OnClickListener,
 	UncaughtExceptionHandler {

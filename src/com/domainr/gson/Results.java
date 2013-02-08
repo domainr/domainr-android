@@ -1,4 +1,4 @@
-package com.connyay.domainr.gson;
+package com.domainr.gson;
 
 public class Results {
     private String query;

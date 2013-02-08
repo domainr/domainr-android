@@ -1,4 +1,4 @@
-package com.connyay.domainr.gson;
+package com.domainr.gson;
 
 import android.os.Parcel;
 import android.os.Parcelable;
