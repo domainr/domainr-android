@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+
+        <EditText
+            android:id="@+id/queryBox"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/list_padding"
+            android:layout_marginRight="@dimen/list_padding"
+            android:ems="10"
+            android:imeOptions="actionDone"
+            android:inputType="textFilter|textNoSuggestions"
+            android:singleLine="true" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/clear"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginBottom="3dp"
+            android:layout_marginRight="23dp"
+            android:background="@drawable/button_item_selector" />
+    </FrameLayout>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="1.0dp"
+        android:paddingLeft="@dimen/list_padding"
+        android:paddingRight="@dimen/list_padding" >
+    </ListView>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -1,0 +1,3 @@
+<resources>
+    <string name="flurry_api_key">SECRET_API_KEY</string>
+</resources>

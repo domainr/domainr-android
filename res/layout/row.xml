@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listElement"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_item_selector"
+    android:orientation="horizontal" >
+
+    <View
+        android:id="@+id/availability"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="22dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/host"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/domainr_grey" />
+
+    <TextView
+        android:id="@+id/subdomain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/domainr_blue" />
+
+    <TextView
+        android:id="@+id/path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/domainr_grey" />
+
+</LinearLayout>

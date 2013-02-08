@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="icsblue">#ff33b5e5</color>
+    <color name="light_grey">#ff404040</color>
+    <color name="transparent">#00000000</color>
+    <color name="dark_grey">#ff262626</color>
+    <color name="orangered">#FF4500</color>
+    <color name="holo_white">#fff4f4f4</color>
+    <color name="tld">#414240</color>
+    <color name="domainr_blue">#2870B0</color>
+    <color name="domainr_grey">#B4BDAF</color>
+    <color name="domainr_dark_grey">#414240</color>
+    <color name="domainr_light_grey">#f4f6f3</color>
+    <color name="domainr_green">#23b000</color>
+    <color name="domainr_red">#ff4d00</color>
+
+</resources>
