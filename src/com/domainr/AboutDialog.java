@@ -15,7 +15,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.connyay.domainr.R;
+import com.domainr.R;
 import com.domainr.common.FlurryLogger;
 
 public class AboutDialog extends DialogFragment implements OnClickListener,

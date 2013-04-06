@@ -26,7 +26,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
-import com.connyay.domainr.R;
+import com.domainr.R;
 import com.domainr.common.DelayedTextWatcher;
 import com.domainr.common.FlurryLogger;
 import com.domainr.gson.GsonTransformer;

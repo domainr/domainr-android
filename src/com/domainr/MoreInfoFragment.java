@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import com.connyay.domainr.R;
+import com.domainr.R;
 import com.domainr.common.FlurryLogger;
 
 public class MoreInfoFragment extends Fragment implements OnClickListener,

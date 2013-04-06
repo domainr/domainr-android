@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.connyay.domainr.R;
+import com.domainr.R;
 import com.domainr.common.FlurryLogger;
 import com.domainr.gson.Registrars;
 
