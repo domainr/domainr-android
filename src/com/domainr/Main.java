@@ -26,7 +26,6 @@ import com.actionbarsherlock.view.MenuItem;
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
-import com.domainr.R;
 import com.domainr.common.DelayedTextWatcher;
 import com.domainr.common.FlurryLogger;
 import com.domainr.gson.GsonTransformer;
@@ -36,175 +35,175 @@ import com.domainr.support.ResultsAdapter;
 import com.flurry.android.FlurryAgent;
 
 public class Main extends ListActivity implements UncaughtExceptionHandler {
-    ListView mainListView;
-    EditText queryBox;
-    Button clear;
-    ResultsAdapter adapter;
-    private AQuery aq;
-    String currentSearch = "";
+	ListView mainListView;
+	EditText queryBox;
+	Button clear;
+	ResultsAdapter adapter;
+	private AQuery aq;
+	String currentSearch = "";
 
-    // cache for an hour
-    long expire = 60 * 60 * 1000;
+	// cache for an hour
+	long expire = 60 * 60 * 1000;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-	super.onCreate(savedInstanceState);
-	setContentView(R.layout.main);
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
 
-	mainListView = getListView();
+		mainListView = getListView();
 
-	queryBox = (EditText) findViewById(R.id.queryBox);
-	adapter = new ResultsAdapter(this);
-	mainListView.setAdapter(adapter);
+		queryBox = (EditText) findViewById(R.id.queryBox);
+		adapter = new ResultsAdapter(this);
+		mainListView.setAdapter(adapter);
 
-	clear = (Button) findViewById(R.id.clear);
+		clear = (Button) findViewById(R.id.clear);
 
-	queryBox.setOnEditorActionListener(new OnEditorActionListener() {
+		queryBox.setOnEditorActionListener(new OnEditorActionListener() {
 
-	    @Override
-	    public boolean onEditorAction(android.widget.TextView v,
-		    int actionId, KeyEvent event) {
-		String search = queryBox.getText().toString()
-			.replaceAll("\\s", "");
-		if (actionId == EditorInfo.IME_ACTION_DONE
-			&& !search.equals(currentSearch)) {
-		    clearList();
-		    buildResults(search);
-		}
-		return false;
-	    }
-	});
-
-	clear.setOnClickListener(new OnClickListener() {
-
-	    @Override
-	    public void onClick(View v) {
-		queryBox.setText("");
-		clearList();
-		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-		imm.showSoftInput(queryBox, 0);
-	    }
-	});
-
-	queryBox.addTextChangedListener(new DelayedTextWatcher(800) {
-	    @Override
-	    public void afterTextChangedDelayed(Editable s) {
-		String search = s.toString();
-		if (search.length() > 1 && !search.equals(currentSearch)) {
-		    buildResults(s.toString().replaceAll("\\s", ""));
-		}
-	    }
-	});
-
-	mainListView.setOnScrollListener(new OnScrollListener() {
-	    @Override
-	    public void onScrollStateChanged(AbsListView view, int scrollState) {
-		if (scrollState == SCROLL_STATE_FLING) {
-		    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-		    imm.hideSoftInputFromWindow(mainListView.getWindowToken(),
-			    0);
-		}
-	    }
-
-	    @Override
-	    public void onScroll(AbsListView view, int firstVisibleItem,
-		    int visibleItemCount, int totalItemCount) {
-	    }
-	});
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-	MenuInflater inflater = getSupportMenuInflater();
-	inflater.inflate(R.menu.main, menu);
-	return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-	switch (item.getItemId()) {
-	case R.id.menu_about:
-	    AboutDialog.newInstance().show(getSupportFragmentManager());
-	    return true;
-	case R.id.menu_share:
-	    FlurryLogger.logDomainrShare();
-	    String shareBody = "Check out Domainr: http://domai.nr";
-	    Intent sharingIntent = new Intent(
-		    android.content.Intent.ACTION_SEND);
-	    sharingIntent.setType("text/plain");
-	    sharingIntent
-		    .putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-	    startActivity(Intent.createChooser(sharingIntent, "Share Domai.nr"));
-	    return true;
-	}
-
-	return super.onOptionsItemSelected(item);
-    }
-
-    public void buildResults(final String query) {
-	aq = new AQuery(this);
-
-	// log flurry search
-	FlurryLogger.logSearch(query);
-
-	// strip all whitespaces
-
-	String url = "http://domai.nr/api/json/search?client_id=domainr-android&q="
-		+ query;
-	GsonTransformer t = new GsonTransformer();
-
-	aq.progress(R.id.progress).transformer(t)
-		.ajax(url, Results.class, expire, new AjaxCallback<Results>() {
-		    public void callback(String url, Results results,
-			    AjaxStatus status) {
-			if (status.getCode() == 200) {
-			    // good response
-			    updateList(results, query);
+			@Override
+			public boolean onEditorAction(android.widget.TextView v,
+					int actionId, KeyEvent event) {
+				String search = queryBox.getText().toString()
+						.replaceAll("\\s", "");
+				if (actionId == EditorInfo.IME_ACTION_DONE
+						&& !search.equals(currentSearch)) {
+					clearList();
+					buildResults(search);
+				}
+				return false;
 			}
-			if (status.getCode() == -101) {
-			    // bad response
-			    clearList();
-			}
-
-		    }
 		});
-    }
 
-    public void updateList(Results results, String search) {
-	// clear list first
-	clearList();
-	currentSearch = search;
-	ResultsData[] resultsData = results.getResults();
-	for (int i = 0; i < resultsData.length; i++) {
-	    adapter.add(resultsData[i]);
+		clear.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				queryBox.setText("");
+				clearList();
+				InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+				imm.showSoftInput(queryBox, 0);
+			}
+		});
+
+		queryBox.addTextChangedListener(new DelayedTextWatcher(800) {
+			@Override
+			public void afterTextChangedDelayed(Editable s) {
+				String search = s.toString();
+				if (search.length() > 1 && !search.equals(currentSearch)) {
+					buildResults(s.toString().replaceAll("\\s", ""));
+				}
+			}
+		});
+
+		mainListView.setOnScrollListener(new OnScrollListener() {
+			@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+				if (scrollState == SCROLL_STATE_FLING) {
+					InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+					imm.hideSoftInputFromWindow(mainListView.getWindowToken(),
+							0);
+				}
+			}
+
+			@Override
+			public void onScroll(AbsListView view, int firstVisibleItem,
+					int visibleItemCount, int totalItemCount) {
+			}
+		});
+
 	}
 
-    }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getSupportMenuInflater();
+		inflater.inflate(R.menu.main, menu);
+		return true;
+	}
 
-    public void clearList() {
-	currentSearch = "";
-	adapter.clear();
-	adapter.notifyDataSetChanged();
-    }
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_about:
+			AboutDialog.newInstance().show(getSupportFragmentManager());
+			return true;
+		case R.id.menu_share:
+			FlurryLogger.logDomainrShare();
+			String shareBody = "Check out Domainr: http://domai.nr";
+			Intent sharingIntent = new Intent(
+					android.content.Intent.ACTION_SEND);
+			sharingIntent.setType("text/plain");
+			sharingIntent
+					.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+			startActivity(Intent.createChooser(sharingIntent, "Share Domai.nr"));
+			return true;
+		}
 
-    // FLURRY!
-    @Override
-    protected void onStart() {
-	super.onStart();
-	FlurryAgent.onStartSession(this, getString(R.string.flurry_api_key));
-    }
+		return super.onOptionsItemSelected(item);
+	}
 
-    @Override
-    protected void onStop() {
-	super.onStop();
-	FlurryAgent.onEndSession(this);
-    }
+	public void buildResults(final String query) {
+		aq = new AQuery(this);
 
-    @Override
-    public void uncaughtException(Thread thread, Throwable ex) {
-	FlurryLogger.logUncaught(ex.getMessage());
+		// log flurry search
+		FlurryLogger.logSearch(query);
 
-    }
+		// strip all whitespaces
+
+		String url = "http://domai.nr/api/json/search?client_id=domainr-android&q="
+				+ query;
+		GsonTransformer t = new GsonTransformer();
+
+		aq.progress(R.id.progress).transformer(t)
+				.ajax(url, Results.class, expire, new AjaxCallback<Results>() {
+					public void callback(String url, Results results,
+							AjaxStatus status) {
+						if (status.getCode() == 200) {
+							// good response
+							updateList(results, query);
+						}
+						if (status.getCode() == -101) {
+							// bad response
+							clearList();
+						}
+
+					}
+				});
+	}
+
+	public void updateList(Results results, String search) {
+		// clear list first
+		clearList();
+		currentSearch = search;
+		ResultsData[] resultsData = results.getResults();
+		for (int i = 0; i < resultsData.length; i++) {
+			adapter.add(resultsData[i]);
+		}
+
+	}
+
+	public void clearList() {
+		currentSearch = "";
+		adapter.clear();
+		adapter.notifyDataSetChanged();
+	}
+
+	// FLURRY!
+	@Override
+	protected void onStart() {
+		super.onStart();
+		FlurryAgent.onStartSession(this, getString(R.string.flurry_api_key));
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		FlurryAgent.onEndSession(this);
+	}
+
+	@Override
+	public void uncaughtException(Thread thread, Throwable ex) {
+		FlurryLogger.logUncaught(ex.getMessage());
+
+	}
 
 }
