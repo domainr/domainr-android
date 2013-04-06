@@ -2,6 +2,6 @@
 
     <item android:drawable="@drawable/list_item_selector" android:state_pressed="true"/>
     <item android:drawable="@drawable/list_item_selector" android:state_focused="true"/>
-    <item android:drawable="@drawable/default_line"/>
+    <item android:drawable="@drawable/ll_border"/>
 
 </selector>

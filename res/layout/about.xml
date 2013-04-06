@@ -298,7 +298,6 @@
             android:paddingTop="10dp"
             android:text="© nb.io"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
     </LinearLayout>
 
 </ScrollView>
