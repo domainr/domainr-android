@@ -25,7 +25,7 @@ public class FlurryLogger {
 
 	public static void logDomainrShare() {
 
-		FlurryAgent.logEvent("App Shared via Email");
+		FlurryAgent.logEvent("Shared via Email");
 
 	}
 
@@ -46,7 +46,7 @@ public class FlurryLogger {
 	public static void logDomainRegister(String register) {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("Register URL", register);
-		FlurryAgent.logEvent("Register taps", params);
+		FlurryAgent.logEvent("Register tap", params);
 
 	}
 }
