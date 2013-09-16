@@ -132,7 +132,7 @@ public class SingleView extends Activity implements UncaughtExceptionHandler {
 
 	public void buildResult() {
 
-		String url = "http://domai.nr/api/json/info?client_id=domainr-android&q="
+		String url = "https://domai.nr/api/json/info?client_id=domainr-android&q="
 				+ domain;
 		GsonTransformer t = new GsonTransformer();
 
