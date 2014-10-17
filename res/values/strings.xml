@@ -8,7 +8,7 @@
     <string name="title_activity_main">Domainr</string>
     <string name="title_activity_view">Domainr</string>
     
-    <string name="Licenses">Domai.nr for Android was built using open source software. \n\n
+    <string name="Licenses">Domainr for Android was built using open source software. \n\n
         ActionBarSherlock \n http://actionbarsherlock.com/ \n\n
         AQuery \n https://github.com/androidquery/androidquery \n\n
         Google GSON \n http://code.google.com/p/google-gson/ \n\n
