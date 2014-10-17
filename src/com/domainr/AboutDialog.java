@@ -84,7 +84,7 @@ public class AboutDialog extends DialogFragment implements OnClickListener,
 			startActivity(browserIntent);
 		} else {
 
-			String uriText = "mailto:ping+android@domai.nr" + "?subject="
+			String uriText = "mailto:ping+android@domainr.com" + "?subject="
 					+ URLEncoder.encode("Hey Domainr Guys!");
 
 			Uri emailuri = Uri.parse(uriText);
