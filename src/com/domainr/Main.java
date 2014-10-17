@@ -128,13 +128,13 @@ public class Main extends ListActivity implements UncaughtExceptionHandler {
 			return true;
 		case R.id.menu_share:
 			FlurryLogger.logDomainrShare();
-			String shareBody = "Check out Domainr: http://domai.nr";
+			String shareBody = "Check out Domainr: https://domainr.com";
 			Intent sharingIntent = new Intent(
 					android.content.Intent.ACTION_SEND);
 			sharingIntent.setType("text/plain");
 			sharingIntent
 					.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-			startActivity(Intent.createChooser(sharingIntent, "Share Domai.nr"));
+			startActivity(Intent.createChooser(sharingIntent, "Share Domainr"));
 			return true;
 		}
 
@@ -149,7 +149,7 @@ public class Main extends ListActivity implements UncaughtExceptionHandler {
 
 		// strip all whitespaces
 
-		String url = "https://domai.nr/api/json/search?client_id=domainr-android&q="
+		String url = "https://domainr.com/api/json/search?client_id=domainr-android&q="
 				+ query;
 		GsonTransformer t = new GsonTransformer();
 
