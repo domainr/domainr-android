@@ -132,7 +132,7 @@ public class SingleView extends Activity implements UncaughtExceptionHandler {
 
 	public void buildResult() {
 
-		String url = "https://domai.nr/api/json/info?client_id=domainr-android&q="
+		String url = "https://domainr.com/api/json/info?client_id=domainr-android&q="
 				+ domain;
 		GsonTransformer t = new GsonTransformer();
 
@@ -217,7 +217,7 @@ public class SingleView extends Activity implements UncaughtExceptionHandler {
 			@Override
 			public void onClick(View v) {
 				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri
-						.parse("http://domai.nr/" + domain + "/buy"));
+						.parse("https://domainr.com/" + domain + "/buy"));
 				v.getContext().startActivity(browserIntent);
 
 			}
