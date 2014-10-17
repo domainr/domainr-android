@@ -61,7 +61,7 @@ public class MoreInfoFragment extends Fragment implements OnClickListener,
 		}
 		if (v == share) {
 			String domain = getArguments().getString("domain");
-			String shareBody = "Found on Domainr: \n http://domai.nr/" + domain;
+			String shareBody = "Found on Domainr: \n https://domainr.com/" + domain;
 			FlurryLogger.logDomainShare(shareBody);
 			Intent sharingIntent = new Intent(
 					android.content.Intent.ACTION_SEND);
