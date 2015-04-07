@@ -149,7 +149,7 @@ public class Main extends ListActivity implements UncaughtExceptionHandler {
 
 		// strip all whitespaces
 
-		String url = "https://domainr.com/api/json/search?client_id=domainr-android&q="
+		String url = "https://api.domainr.com/v1/api/json/search?client_id=domainr-android&q="
 				+ query;
 		GsonTransformer t = new GsonTransformer();
 
